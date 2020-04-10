@@ -1,0 +1,1774 @@
+WEBVTT
+
+1
+00:00:00.685 --> 00:00:03.805
+Meeting is being recorded. Okay. Thanks, Eva.
+
+2
+00:00:05.065 --> 00:00:19.225
+So, basically, I wanted to discuss with you guys about the snowflake changes that we have done for one time data migration and also, the incremental changes that we are doing for this data.
+
+3
+00:00:19.524 --> 00:00:31.824
+So, basically, the, the changes that I would be discussing is mainly on the data migration toward the data migration. We have data. That is in Salesforce. Right? The CS one data that we are putting it in snowflake.
+
+4
+00:00:31.824 --> 00:00:40.164
+So, I think you guys by none are aware of what is the purpose of this project entirely whatever data systems we are passing.
+
+5
+00:00:40.255 --> 00:00:53.005
+We are moving that from Salesforce from Salesforce to snowflake. So, let me share my screen. And today I would be discussing with you.
+
+6
+00:00:53.005 --> 00:00:57.054
+People the changes that we have done for one time migration,
+
+7
+00:00:57.505 --> 00:01:08.275
+and also the incremental also and then the packing that you guys may have to do for future purpose and things like that will be discussed in this session.
+
+8
+00:01:08.754 --> 00:01:15.055
+So, basically, you guys are aware that we have are not objects, correct? So, those were not five objects.
+
+9
+00:01:15.415 --> 00:01:26.784
+What we have done is we have taken so how we, that the data from CS one we had earlier the process still Jan, some date.
+
+10
+00:01:27.174 --> 00:01:37.344
+Gen, two thousand twenty some date we had one time migration created with the, the basically the data will pull based on the creation date. So basically, let's take the.
+
+11
+00:01:40.974 --> 00:01:46.885
+Let me on this, so let's take.
+
+12
+00:01:58.049 --> 00:02:12.324
+So, let's take a, we for now, we have seven objects right? So this, for this one, each of this one, not seven objects, we had replied data in chunks. Basically, how we drive this data in chunks is based on the created it.
+
+13
+00:02:12.655 --> 00:02:24.685
+Let's take the chunks. Would be of any order, but as of now, I'll just give you one small example like, you know, let's take I didn't drive. So basically, there were many processes that we had it.
+
+14
+00:02:25.110 --> 00:02:30.985
+One is driving data from CS one and meeting that in our cloud system.
+
+15
+00:02:30.985 --> 00:02:45.625
+Basically, we're putting in the converting them into a CSP and loading the CSP in snowflake and, you know, transforming those PSP data into snowflake table data. So, this was the main operations that were part of the migration.
+
+16
+00:02:45.955 --> 00:02:49.735
+So basically, two steps again need data.
+
+17
+00:02:52.020 --> 00:02:54.625
+To see a suite and then.
+
+18
+00:02:56.425 --> 00:03:07.705
+Low data to snowflake that we had. So, so basically reading data to, as I said, mule.
+
+19
+00:03:08.395 --> 00:03:15.594
+So here, basically, the data we would need was happening through mule. So good luck with them. Mainly from young.
+
+20
+00:03:15.594 --> 00:03:25.134
+There's a person who worked on the data migration part here, where he has had the job setup for this, where all the psp's would be.
+
+21
+00:03:25.164 --> 00:03:35.784
+And I think you guys know the xmls you guys have been creating for your flows to read. The files are filed it. Done put them into CS piece we'll basically the same purposes.
+
+22
+00:03:36.625 --> 00:03:49.585
+Basically, the examples that you guys were creating were for this purpose, basically, reading the data putting that based on the criteria in the property phases. So those are the examples that you guys were working on.
+
+23
+00:03:49.949 --> 00:03:59.875
+So, basically reading the data insurance system can be any could be anything it can be months by support device, or it can be anything. So far the mule takes care of that.
+
+24
+00:04:00.354 --> 00:04:06.564
+So, this part once and reads this. I'm store sitting.
+
+25
+00:04:08.639 --> 00:04:21.415
+Cloud, so we have cloud gateway basically, we have our rotated location, and we pull all the data is being put in this location and we'll discuss more on that. But no, we have in prod gateway of a code.
+
+26
+00:04:22.105 --> 00:04:36.774
+You guys may have been aware of this code visit we have basically a, the first because snowflake so basically, here, all the scripts that we have, we are sharing the common repository for archive, things like that. Right?
+
+27
+00:04:37.259 --> 00:04:50.935
+Same with the increment also. And the same scripts of implement are used for up to so basically the forty days of basically the, the structure is same and the project project project deposit field is saved.
+
+28
+00:04:55.350 --> 00:05:09.714
+So, basically, we have this by transcripts and basically this code base in cloud, where, you know, we have a particular. My twins could be executed, which is a one time incremental to assess. So, this is the Python script that we run.
+
+29
+00:05:10.199 --> 00:05:22.435
+There is a single assist. It says, note five. So basically, this Python script that you see here that I'm highlighting. This would be then from cloud gateway.
+
+30
+00:05:22.704 --> 00:05:26.754
+Basically, the repository has been shut down in this location.
+
+31
+00:05:27.240 --> 00:05:41.605
+And when you be done this, the basically the data from CSB files, it is read from those parts and put into this snowflake snowflake tables, which I'll just be redone for the. So, these are the high level information on this twenty dollars still.
+
+32
+00:05:48.475 --> 00:05:57.745
+I'm assuming, yeah can we, can you just bring those two points also in the WebEx team so that we can make it.
+
+33
+00:06:00.475 --> 00:06:12.925
+You want me to put this in the BC? Yeah these, I just want to know that.
+
+34
+00:06:13.884 --> 00:06:27.805
+Oh, I think the script name is this which I'll ping you separately. Once this meeting is done. I'll share with you guys, but anyways in this recording, as if you go for all, you can go through the meeting recording. Also you will clearly see the file anyways.
+
+35
+00:06:27.954 --> 00:06:29.125
+Once the meeting is done,
+
+36
+00:06:29.154 --> 00:06:31.620
+I'll show you the so,
+
+37
+00:06:31.735 --> 00:06:32.935
+let me complete on this,
+
+38
+00:06:32.964 --> 00:06:34.555
+whatever information you on the meeting,
+
+39
+00:06:34.615 --> 00:06:44.935
+you let me know so that I can share it across for the ticket is so high level reading the data to CSV and then load reading the data from CSB files and loading that to snowflake,
+
+40
+00:06:45.295 --> 00:06:48.024
+this was the main agenda of this data migration,
+
+41
+00:06:48.475 --> 00:06:49.524
+which happened in chunks.
+
+42
+00:06:49.555 --> 00:06:51.024
+I just summarize that again.
+
+43
+00:06:51.990 --> 00:06:54.865
+So coming to the part first part,
+
+44
+00:06:54.894 --> 00:07:07.824
+this was totally been taken by collyon and you guys can have a session with them who does what basically you guys are aware of the flows the examples that you use for flows creation that you guys are aware of.
+
+45
+00:07:07.884 --> 00:07:22.824
+But different all, you can see how it actually works and put this into cloud gateway. You can pick with them and get this information hand in hand as well, which will be good coming to this part of snowflake this completely.
+
+46
+00:07:22.824 --> 00:07:25.285
+I'll let, you know, any questions that you have.
+
+47
+00:07:26.790 --> 00:07:31.165
+So now what exactly does what exactly we do this.
+
+48
+00:07:32.069 --> 00:07:40.524
+So, for each of this object, right? We have something called. This is basically we have a command that we execute.
+
+49
+00:07:46.464 --> 00:07:53.904
+Okay, so this is the command that we execute so this is the command that gets executed.
+
+50
+00:07:53.964 --> 00:08:04.644
+Basically, we have an automatic process for this, which I'll explain, but before that, I'll explain you what exactly in the background happens. Basically, for each particular object.
+
+51
+00:08:05.154 --> 00:08:12.084
+You have something like object name configuration set, which is this and we have a one time migration.
+
+52
+00:08:12.084 --> 00:08:22.524
+Basically, the export that we needed, you know, that there'd be database connection or, like, proof collection, that kind of information would be available here. So basically, the formatting's have that.
+
+53
+00:08:22.920 --> 00:08:35.995
+So basically, for each object, for each of this is the command. That gets executed performing the load to snowflake so I come into each of this. I'll let, you know, what exactly.
+
+54
+00:08:36.024 --> 00:08:47.184
+And what exactly each of this would do, but before that, then this execute this executes this exertion steps, a broker into five or seven different operations.
+
+55
+00:08:47.605 --> 00:08:51.684
+So, basically, if you see the first operation is.
+
+56
+00:09:01.105 --> 00:09:15.085
+It's just a statement begin that you have an office close, so we have begin an end and then you have the in between right? Let's just like what I call that. We have similar process. We have it for snowflake where you have the beginning step and the permit step.
+
+57
+00:09:15.475 --> 00:09:20.664
+And what is important is the one that you see from two to six basically, it's from kit.
+
+58
+00:09:24.894 --> 00:09:39.325
+A sticky note to stage copy from stage to stage and merge values. So basically explain you in detail water all of this southern water this in operations before that.
+
+59
+00:09:39.325 --> 00:09:47.695
+I'll just explain what exactly happens here. Oh, here, mule the data from CS one puts it in gateway.
+
+60
+00:09:48.029 --> 00:10:02.004
+So let's see how this happens so, basically, this your and cloud gateway data feed is loosely coupled, whereas reading running this clip and reading the files from this office is really loosely coupled.
+
+61
+00:10:02.034 --> 00:10:03.504
+It's not a dependent.
+
+62
+00:10:04.345 --> 00:10:19.134
+This job is not dependent on the CS, is that the eligibility so this file would be generated basically, this command would we generated every twenty minutes and whereas mule keeps reading the data from the source system and put it in the target system.
+
+63
+00:10:19.495 --> 00:10:23.875
+So, basically, so system here receives one for us and it targets public.
+
+64
+00:10:25.254 --> 00:10:35.125
+Oh, so it is sales force and target system is snowflake. Yeah. So let me show you the CSV parts that we have.
+
+65
+00:10:44.995 --> 00:10:59.664
+Okay. So, if you see, this is the, that we have users CG. W CSD. I don't know whether you guys are new to this cloud Gateway and the part that you're seeing. If it is something new.
+
+66
+00:10:59.664 --> 00:11:10.195
+Let me know. So, that I can in detail explain the purpose. If at all something I can skip on this. Yeah, I can skip on it. We know the parts and on nothing.
+
+67
+00:11:11.304 --> 00:11:16.554
+So all objects and, you know, I just believe this so that if somebody new can just go in.
+
+68
+00:11:18.264 --> 00:11:21.804
+Have a look at it. So basically, so I walk into one of the.
+
+69
+00:11:24.534 --> 00:11:30.625
+So, come CS one how do you actually fit the data into this cloud? Gateway using user, right?
+
+70
+00:11:31.470 --> 00:11:42.445
+So, the Super fancy is one that is safe for you takes all the data into the cloud gateway, using you to upgrade. It does mail's office.
+
+71
+00:11:44.304 --> 00:11:57.865
+And that is all just that we don't have to be bothered about okay whatever it is, the content, the cloud gateway, and upload it into the snowflake.
+
+72
+00:11:57.865 --> 00:12:02.125
+They actually are going to interlocking. Yes. Yes. Okay.
+
+73
+00:12:02.700 --> 00:12:05.215
+So but they are problems also,
+
+74
+00:12:05.215 --> 00:12:07.465
+in that case you by which every day we get it,
+
+75
+00:12:07.465 --> 00:12:08.875
+and we may need your help also,
+
+76
+00:12:08.875 --> 00:12:10.315
+in that monitoring or like,
+
+77
+00:12:10.315 --> 00:12:10.465
+you know,
+
+78
+00:12:10.465 --> 00:12:14.424
+debugging will come to that your understanding is right but,
+
+79
+00:12:14.424 --> 00:12:14.664
+you know,
+
+80
+00:12:14.664 --> 00:12:15.804
+there are some loopholes that,
+
+81
+00:12:15.804 --> 00:12:16.075
+you know,
+
+82
+00:12:16.075 --> 00:12:18.085
+we may have to join the dots.
+
+83
+00:12:18.085 --> 00:12:28.674
+So basically for that, you know, this information is very much useful for you guys. We'll just concentrate on this anyways from the point that I'm showing you from this box. I think you can get started with that too.
+
+84
+00:12:30.024 --> 00:12:42.325
+So, all the files, as I said, it is under the part that I showed you and all the folders on this under data under data, all, but not for object that their full names is there.
+
+85
+00:12:42.774 --> 00:12:49.884
+And when you get into one of the object, you will see the CSB files physically. These are the data files for that particular object that you'll have it.
+
+86
+00:12:58.404 --> 00:13:07.495
+I'm avoiding this anyways. These are the uploaded ones that you would see, but obviously is twisted into this part. And when I left for this.
+
+87
+00:13:12.684 --> 00:13:26.754
+You will see, therefore, new files that we have. So basically this ID, when I run the job, basically that line that I have for this particular object CS, one account I'll take for this KP this, as an example.
+
+88
+00:13:38.664 --> 00:13:46.014
+So, I just showed you the database that we have it and apart from that in the same folder, but we have custom framework code base.
+
+89
+00:13:46.014 --> 00:13:55.735
+So, basically here is where our repository code is there that I think, when you guys are sharing, but along with time ambition.
+
+90
+00:13:59.039 --> 00:14:11.394
+So, yeah, this, this is the file name, the dimension. So you have to be under this ripple, basically, this particular part in order to run this particular line.
+
+91
+00:14:12.024 --> 00:14:25.254
+So, this is the line that basically takes care completely for you. So, basically, this is automatically set up in the flow where every into twenty sort of basically twenty minutes, twenty to twenty five minutes.
+
+92
+00:14:25.315 --> 00:14:37.315
+This has been set up, you know, this command would be executed for each object and whatever. The CSB files are there within snowflake. But just for the demo purpose that I'm showing now, I will run this for a.
+
+93
+00:14:47.399 --> 00:14:53.335
+Okay, so I have by five now, I just read this particular and then.
+
+94
+00:14:57.600 --> 00:15:03.115
+So, you just see few things that is happening, which I'll explain in detail.
+
+95
+00:15:11.215 --> 00:15:25.225
+So, you'll see something is uploaded then some lovers that will say it is loaded and then everything complete then it comes back to the comment from. So basically your account load data load is complete.
+
+96
+00:15:26.399 --> 00:15:36.294
+When I go and see, this, you will see, basically is complete for this particular object for now. Okay. So basically, this particular comment.
+
+97
+00:15:40.110 --> 00:15:51.565
+So it will be deleted from the cloud gateway. It will not be deleted from cloud gateway. It will be marked as not uploaded will be marked as uploaded failed or skipped based on the information that you put.
+
+98
+00:15:53.245 --> 00:16:06.355
+We are not deleting the data files for now, because I think we would be continuing to retain those for some timeframe at least, for six months or something is the plan that we have it but, yeah, for sure we are not deleting the CSB files.
+
+99
+00:16:06.355 --> 00:16:15.144
+Not time it is okay to delete anything on the snowflake data, but not because here, the data that we have, we can even the loaded.
+
+100
+00:16:15.804 --> 00:16:21.715
+So, because this is the tedious job of generating files and it's a long process that we have done.
+
+101
+00:16:21.865 --> 00:16:34.465
+That model has taken to attended display, so definitely we are not linking any of the data that we have if you see this file and just look for this file.
+
+102
+00:16:37.230 --> 00:16:37.950
+Hello?
+
+103
+00:16:45.144 --> 00:16:59.725
+So, if you see this particular file, which had to be uploaded each uploaded is mom with this status. So, this is the status that we have it. Now, I'll go back to what exactly.
+
+104
+00:16:59.725 --> 00:17:07.734
+The seven steps it performs. So, first thing.
+
+105
+00:17:08.904 --> 00:17:21.384
+Very important to know us from cloud gateway. This is script that is running and then we have a post for the three tables. Basically when is this staging?
+
+106
+00:17:24.420 --> 00:17:31.315
+So, in snowflake, we have three important systems. Sorry? Tables. One is staging.
+
+107
+00:17:33.684 --> 00:17:40.555
+One is staging second is table and then we have a stable.
+
+108
+00:17:41.184 --> 00:17:56.154
+So basically, stage table is something that isn't and then for your current operation, you're using this this is not having your complete data for any object, whereas is so similar table. So, basically, for only one more night, we're not by objects.
+
+109
+00:17:57.414 --> 00:18:00.355
+You will have one not fight you will have.
+
+110
+00:18:07.825 --> 00:18:20.515
+So, in snowflake, as I said, there are three stages that it goes through one staging table then it goes into this table and then is this table.
+
+111
+00:18:20.785 --> 00:18:32.244
+So this is your final stage any data. So, the source of truth, so similar table is this so, and this table is just for the current transaction of the data.
+
+112
+00:18:32.694 --> 00:18:45.295
+Whereas this one is where your CSP file from cloud is rare, and that particular is stored basically compressed and stored in for this particular last three staging.
+
+113
+00:18:45.775 --> 00:18:50.365
+So I can even show one example of what exactly how exactly performs.
+
+114
+00:19:19.585 --> 00:19:34.045
+Okay, so basically, let's take a so here it is what exactly happens is, let's take for account object.
+
+115
+00:19:34.045 --> 00:19:42.265
+We had five things, right? We had it in cloud and I run my Python script basically gateway.
+
+116
+00:19:47.039 --> 00:20:00.474
+Transcript, then this five files were taken snowflake staging table. So basically, when you do, when you look for those files, basically, this is the state.
+
+117
+00:20:01.315 --> 00:20:11.335
+One of the example I'm showing here your CSP files, all the CSB files for each object. You'll be able to see with underscores TD, basically object name.
+
+118
+00:20:11.335 --> 00:20:16.765
+This affects for this is under postpaid basically object name and underscore state.
+
+119
+00:20:17.934 --> 00:20:18.384
+So,
+
+120
+00:20:19.224 --> 00:20:32.545
+whenever yeah,
+
+121
+00:20:32.845 --> 00:20:35.515
+whenever you run this particular,
+
+122
+00:20:36.535 --> 00:20:37.375
+the five files,
+
+123
+00:20:37.375 --> 00:20:38.184
+the CSP files,
+
+124
+00:20:38.184 --> 00:20:44.724
+that you see here right here are the files that you had this will go under underscore,
+
+125
+00:20:45.204 --> 00:20:46.555
+underscore stage table.
+
+126
+00:20:46.920 --> 00:20:59.275
+So, you, it would have transition from it would have transition first from this particular underscore page. This is basically named, as is three staging tables.
+
+127
+00:21:01.164 --> 00:21:07.345
+They're not basically these tables. They are basically the staging environment of putting the compressed files.
+
+128
+00:21:08.005 --> 00:21:21.055
+So, what is this and then the next option that we have that. We do is uploaded that. We have it in. Snowflake. I can maximize this to show you. So, do you.
+
+129
+00:21:21.055 --> 00:21:28.224
+See, there's one more example that I have shown the topic. That I had it.
+
+130
+00:21:28.680 --> 00:21:40.974
+So, if you see this, yes, this is the combination that you are using and the this particular table, let's take what, from whatever point of this yes, but if you would have had in, that would be put into this table.
+
+131
+00:21:41.549 --> 00:21:47.994
+So, what is this is there in staging? Once this is put in this staging?
+
+132
+00:21:48.654 --> 00:21:57.474
+We have some hard copy from stage two, something called copy from each.
+
+133
+00:21:59.515 --> 00:22:14.095
+Stevie truncate step I have not covered that, because I'll cover that later, whereas I have covered to begin with all those simple steps, whereas coming to copy from stage two is as a tour.
+
+134
+00:22:14.125 --> 00:22:17.305
+This is a transition table for programming and operation.
+
+135
+00:22:17.664 --> 00:22:29.694
+Basically, let's take all your files that the data values or data rules that particular piece would be ordered in.
+
+136
+00:22:34.829 --> 00:22:44.424
+So, basically, this is of operation for then staging. This is operational. So if you see here.
+
+137
+00:22:47.065 --> 00:22:51.984
+But we'll take care,
+
+138
+00:22:52.045 --> 00:22:54.565
+I will also,
+
+139
+00:22:54.595 --> 00:22:56.305
+but just go on the high level for now,
+
+140
+00:22:58.255 --> 00:23:09.414
+this five clients we'll be able to I will do an example of this similar to your similar tables.
+
+141
+00:23:09.444 --> 00:23:22.644
+I think you guys are aware of there's no difference between the underscores. There's no difference between the tables and the tables one limit the difference six columns in the end of the W columns.
+
+142
+00:23:27.204 --> 00:23:41.785
+Okay. No, I didn't get that. What is that? What is the last question? You asked, because we go to how the low tables episode similar tables.
+
+143
+00:23:41.785 --> 00:23:51.055
+Okay, but how do you actually move the file the Congress files to the, that I'll go into the court level just all the processes working.
+
+144
+00:23:51.055 --> 00:23:59.365
+I'll definitely go, but I would like to understand you guys know what is the difference of the table and hold table.
+
+145
+00:24:02.605 --> 00:24:12.295
+We don't work on that. I think you all what generating this file say, anyways, we'll go through one of the examples for now.
+
+146
+00:24:47.335 --> 00:24:55.674
+So, you guys may be aware of with the case object and things like that, right? Yeah. So, let me open.
+
+147
+00:24:57.865 --> 00:24:58.164
+This.
+
+148
+00:25:57.775 --> 00:26:08.575
+Okay, and it is, this is not showing the difference much. That's because I'm opening the company for that. So basically we have table and table.
+
+149
+00:26:09.085 --> 00:26:23.605
+So, the table columns will all be except accepts its columns basically, except this will be the additional columns that you will see similar table.
+
+150
+00:26:23.694 --> 00:26:34.825
+The assess table. Not a sustainable disability says schema whereas when you see the underscore stage schema, you will not have this attribute.
+
+151
+00:26:35.394 --> 00:26:45.805
+So, this is the only difference on the table by variables, and this, the actual replica of that.
+
+152
+00:26:51.174 --> 00:27:01.164
+So, what do you have it? So, basically this table, but similar to each other with six columns difference. So, there's nothing much.
+
+153
+00:27:08.125 --> 00:27:22.285
+Space is here all the companies get off the table and then this is the step that we have it for,
+
+154
+00:27:22.345 --> 00:27:23.815
+where no copy happens.
+
+155
+00:27:32.815 --> 00:27:47.755
+Step five that we have is the operation when it will see for a given record, that particular record. Basically each report we are identifying based on the ID parameter. I'm last modified date.
+
+156
+00:27:48.234 --> 00:27:55.884
+So, you guys might be aware we don't have last modified date for objects. In that case we consider created date for those objects.
+
+157
+00:27:56.335 --> 00:28:07.615
+Otherwise last date for maximum of the objects, and we identify existing data. So, basically, what happens is this table. Let's take two days.
+
+158
+00:28:07.615 --> 00:28:19.944
+We have a data table already and tomorrow there is, I can update from sales force that is coming to this particular table. Basically, the same value. Same record has been updated with some of the guys.
+
+159
+00:28:20.484 --> 00:28:26.634
+Then we'll update, basically merge those values in it.
+
+160
+00:28:27.115 --> 00:28:41.515
+It was check yes. Escape. So, basically, there's a merge query that runs whether the data is existing in that particular last modified date. Is that any record already in this table?
+
+161
+00:28:41.515 --> 00:28:48.684
+If a record is timestamped this maximum then this table otherwise, if that is not accounted already.
+
+162
+00:28:51.384 --> 00:28:57.565
+So, basically, this data from this basement data from.
+
+163
+00:29:00.714 --> 00:29:13.674
+So, the system, so, and this is the final final stage of basically, where, like, you know, once it goes through to the source, you're done with that. So we're good with it.
+
+164
+00:29:13.704 --> 00:29:20.424
+And once this is done upload it uploaded and use that particular operation for those.
+
+165
+00:29:21.505 --> 00:29:33.234
+No, I'm covering that now is here truncate stage happens.
+
+166
+00:29:34.285 --> 00:29:45.714
+We have this data basically what? We do whatever the data values we just load it in this. Then we will compare and we assess each value with the last modified date. That is what we are doing here.
+
+167
+00:29:46.765 --> 00:29:55.404
+Every time when the script is done, this is what it happened that an example, let's get today.
+
+168
+00:29:55.644 --> 00:30:08.724
+I have to who be hundred rows let's take for forty IDs or.
+
+169
+00:30:17.694 --> 00:30:21.204
+Okay, so what this does is, it's.
+
+170
+00:30:25.075 --> 00:30:28.914
+Similar operations take place here,
+
+171
+00:30:29.789 --> 00:30:36.714
+just as upon that we added this content to the of the amount of data that we,
+
+172
+00:30:37.464 --> 00:30:41.154
+what exactly happened first.
+
+173
+00:30:44.815 --> 00:30:58.615
+So this particular pipe has seven steps to it, connect connections to Python script explanations but basically this by itself has all the properties that connections.
+
+174
+00:30:58.950 --> 00:31:13.704
+So, if you first truncated your time, basically, lets you have hundred records, you load those hundred and let's take us to the table. That is not. Okay. So, basically, there's nothing and this hundred percent.
+
+175
+00:31:15.630 --> 00:31:27.234
+And now as parts are loaded, already there, sixteen, sixteen, sixteen, new use will be inserted an existing fourteen.
+
+176
+00:31:30.414 --> 00:31:30.835
+Okay.
+
+177
+00:31:33.775 --> 00:31:48.295
+And in staging all that, right? So, when it happens, okay now in the next, then let's take again.
+
+178
+00:31:49.105 --> 00:31:52.765
+There's some great I'll check with the how many CS we have.
+
+179
+00:31:56.519 --> 00:31:59.244
+So you will see if you have for the space, right?
+
+180
+00:31:59.755 --> 00:32:00.265
+Let's take,
+
+181
+00:32:00.265 --> 00:32:09.625
+I will run this files and one thing we need to see there's no data,
+
+182
+00:32:09.654 --> 00:32:10.404
+basically,
+
+183
+00:32:11.664 --> 00:32:21.954
+data that we had it in the previous two then is not deleted from the staging and intermittent tables for performing current operations.
+
+184
+00:32:22.494 --> 00:32:25.914
+That's why we need to delete this. So, basically during a.
+
+185
+00:32:27.805 --> 00:32:33.204
+This has to be truncated. Okay, this has to be truncated. It will happen.
+
+186
+00:32:35.575 --> 00:32:47.904
+Before any operation is proper, then not to stage happens, which I just explain here then copy it happens. Then it happens. Now, the six step is removed.
+
+187
+00:32:49.200 --> 00:32:51.835
+So basically, once this is done.
+
+188
+00:33:09.599 --> 00:33:10.734
+I think that the detail.
+
+189
+00:33:17.849 --> 00:33:29.484
+So, basically, six operation is on this is performed for previous.
+
+190
+00:33:35.815 --> 00:33:38.785
+Are you guys aware of this steps that I'm explaining, or this?
+
+191
+00:33:39.894 --> 00:33:52.644
+Yeah, we also value understanding basically that they will have all those parties, and the will have that record because it is at the table.
+
+192
+00:33:53.934 --> 00:34:07.345
+The stage for the George W removed the file before doing data mixed operation. Yes. Okay. So this are the seven steps that basically each during the Python script running, it will happen.
+
+193
+00:34:07.769 --> 00:34:21.715
+So, we seven steps toward where is the code if you go and look for this code, you will not find this in any of the transcripts in this one. You would find it in records tables.
+
+194
+00:34:22.889 --> 00:34:35.695
+So, if you'll see, there is a connection to the Oracle database, the techniques and I'm sharing with you. So, it is this user a user.
+
+195
+00:34:39.420 --> 00:34:50.244
+So the table is the database that we connect, and this is the schema that we are using for putting the data or doing any updates to particular clarification.
+
+196
+00:34:50.579 --> 00:34:58.614
+So, basically all the steps are stored in this particular table. So, let's take.
+
+197
+00:35:01.795 --> 00:35:15.804
+I do this, so this is the table depatime table that we have. You wanna object name what? Configurations to it needs to be executed in snowflake store.
+
+198
+00:35:16.349 --> 00:35:29.905
+So basically all the steps that needs to be executed. So basically you asked right that compression. What is the command being used? All of that code? You will find it here under parameter value.
+
+199
+00:35:33.594 --> 00:35:44.454
+Just have a look at this when you don't have to worry in this object name for all the file objects will have seven steps. What each one parameter name I just expected.
+
+200
+00:35:44.815 --> 00:35:53.335
+I think a new ways to be able to related now, begins to speed speed. It's something that I just shared with you here. Exactly.
+
+201
+00:35:55.675 --> 00:36:03.565
+What is important is this I'll just go through each of this. This is what gets executed in snowflake.
+
+202
+00:36:03.625 --> 00:36:04.074
+Basically,
+
+203
+00:36:04.074 --> 00:36:11.815
+a section is makes connection to snowflake and each of this each object,
+
+204
+00:36:11.815 --> 00:36:17.184
+whenever on command that we have it for happens,
+
+205
+00:36:17.545 --> 00:36:18.744
+these are the seven steps for each.
+
+206
+00:36:18.894 --> 00:36:27.894
+That will begin ignore our commitments with something similar. First of all. This is the command. That is used in snowflake.
+
+207
+00:36:33.204 --> 00:36:42.534
+So here is where the files that are under users data and see here,
+
+208
+00:36:42.894 --> 00:36:50.454
+this is telling needs to be picked and put on this particular table.
+
+209
+00:36:50.664 --> 00:36:59.215
+So, I told you underscores, TG underscore stage is the, the staging where, you know, the detail of the CS piece will be stored in snow.
+
+210
+00:37:00.389 --> 00:37:04.945
+Yeah, with that. Hello?
+
+211
+00:37:06.715 --> 00:37:20.965
+Yeah, yeah, got it. Okay. Then copy from stages. What we have to. Basically, this is the command once the so basically, the put command is moved to put defines the staging.
+
+212
+00:37:21.300 --> 00:37:34.224
+Basically, all this, the combination that is it that it uses to put a file, as it is put that it is then the data on each of the psp's are expected, using this.
+
+213
+00:37:34.644 --> 00:37:48.414
+So just have a look at it copy into all the files of this format for the special character duty of support. We are setting all of this.
+
+214
+00:37:48.445 --> 00:37:56.724
+It is Karma skip huddle because we have all the header, which is line number one.
+
+215
+00:37:58.045 --> 00:38:08.184
+Live football, you find this consider that document empty field and some, some, some other additional parameters.
+
+216
+00:38:08.184 --> 00:38:19.855
+So that, you know, a PSP is properly loaded from PSP data from CSB files are loaded properly into the snowflake table where the data is going into.
+
+217
+00:38:20.065 --> 00:38:28.824
+If there is any error to a particular file, skip that particular file and proceed with this other work, this is what this particular is useful.
+
+218
+00:38:29.094 --> 00:38:38.429
+So basically, snowflake supports itself from copying from to the snowflake table. So, this is the comment that has been used. Okay.
+
+219
+00:38:41.815 --> 00:38:55.494
+And it all okay, so this is the step that I was talking about. So basically here, I will go with the simpler one.
+
+220
+00:39:06.059 --> 00:39:06.510
+Okay,
+
+221
+00:39:09.510 --> 00:39:22.315
+okay this is one simpler test table that exactly the books I'm just sharing with you guys so that you guys are aware of and makes it simple and easy to understand.
+
+222
+00:39:22.764 --> 00:39:37.704
+So, basically, oh, see it, is that the temporary table that you are adding more than one ID ID with? Plus the last one in my sample.
+
+223
+00:39:41.335 --> 00:39:51.204
+Hello okay. Let's say you have two hundred record rows in that.
+
+224
+00:39:51.204 --> 00:40:05.184
+Forty are already there in and it would be possible for the IDs, sixteen that are to be inserted. So basically let's take hundred rows right? Forty IDs are already there.
+
+225
+00:40:05.514 --> 00:40:17.724
+So update about sixty the course if they're distinct, it'll insert. If the records are not distinct. Fifty values are distinct.
+
+226
+00:40:19.889 --> 00:40:31.344
+Distinct IDs, and the WI, fi each of the ID where somebody else would be older and some values could be happened.
+
+227
+00:40:31.375 --> 00:40:37.405
+It would be possible to see as having same ID last modified with some of the points.
+
+228
+00:40:46.974 --> 00:41:01.554
+No, I mean, one hundred dollars for the okay that needs to be uploaded in that spot IDs are already stable.
+
+229
+00:41:02.034 --> 00:41:08.635
+Okay so I was talking to you about this forty ignore that. We have sixty new IDs.
+
+230
+00:41:08.664 --> 00:41:12.954
+That means suppose when you look at those sixty,
+
+231
+00:41:13.224 --> 00:41:14.065
+sixty records,
+
+232
+00:41:15.175 --> 00:41:22.614
+I'll call it out of sixteen distinct IDs,
+
+233
+00:41:22.735 --> 00:41:23.905
+basically distinct IDs.
+
+234
+00:41:25.614 --> 00:41:32.215
+This defied a course. Would be for same ID. Okay. Yeah. This also would be for.
+
+235
+00:41:34.110 --> 00:41:48.864
+Okay, okay, I'm sorry before I need to. Okay, so now I need to when they need to put value for each ID, right? I cannot have duplicate value.
+
+236
+00:41:50.335 --> 00:42:00.894
+So, in that case, the maximum of last modified date and things like that to make it work. Okay. Yeah.
+
+237
+00:42:00.925 --> 00:42:08.875
+So this changes in yellow, that is something to be modified from today, but as the current functionality I just explained for now.
+
+238
+00:42:09.295 --> 00:42:09.414
+So,
+
+239
+00:42:09.414 --> 00:42:09.864
+basically,
+
+240
+00:42:10.105 --> 00:42:11.125
+from his TC table,
+
+241
+00:42:11.545 --> 00:42:25.559
+we are picking the ID and the maximum of last modified date and articular value you're putting into if you see ID when match ID and last modified date if
+
+242
+00:42:26.394 --> 00:42:30.445
+if the table has been,
+
+243
+00:42:30.445 --> 00:42:32.094
+what is there in this?
+
+244
+00:42:32.545 --> 00:42:46.375
+Then it will update well, matched and last modified date is great. It will update if not matched if match. That means the ID that means it's a new entry. Then insert.
+
+245
+00:42:48.445 --> 00:43:01.405
+Okay, yeah, so this is what much basically takes and this is how complete data from CSB format that we have the data is this is it about what?
+
+246
+00:43:01.405 --> 00:43:08.335
+Exactly things for each object. So I'll just go through this again.
+
+247
+00:43:09.894 --> 00:43:24.204
+When I run here, right? You'll see when I executed this, it tries to be the profile, basically tries to read the profile for production environment. I didn't run this on production environment. You can see it makes a connection to the system.
+
+248
+00:43:24.869 --> 00:43:39.025
+Okay. Then often making what system it says for this object name. So there's this object name that you see here is coming. It is coming from here. What executed by the you get right?
+
+249
+00:43:39.385 --> 00:43:50.844
+The object name is something that you are passing. So that is what will pass to Oracle, and you have something like set again you are having to send this.
+
+250
+00:43:51.269 --> 00:43:59.275
+Okay so what values are passing in your pipeline and script execution. That is what you see here.
+
+251
+00:43:59.635 --> 00:44:07.405
+So basically this parameters that you're seeing object name.
+
+252
+00:44:12.954 --> 00:44:15.534
+And this the Oracle pedometers.
+
+253
+00:44:18.744 --> 00:44:23.034
+This is for your Apple connection and getting the property values. Okay.
+
+254
+00:44:23.394 --> 00:44:36.235
+So, basically all seven properties for each to us a stored in, or I can see, this is the query that is being executed in Oracle. Rachel gave me the steps.
+
+255
+00:44:36.235 --> 00:44:39.894
+We're just basically this steps that I showed you here.
+
+256
+00:44:42.144 --> 00:44:45.534
+I just fisted people cause they're.
+
+257
+00:44:47.815 --> 00:44:56.724
+And then you'll see something, like, upload it loaded you more on that. So basically you have uploaded.
+
+258
+00:44:57.295 --> 00:45:09.894
+This is you are this particular when you buy in this is a depot but basically, if you have this comes, when this group can reach this stage.
+
+259
+00:45:13.284 --> 00:45:18.625
+So uploaded this step step is complete uploaded to staging.
+
+260
+00:45:22.619 --> 00:45:25.284
+So, basically, this means step three completed.
+
+261
+00:45:28.074 --> 00:45:35.815
+Okay, when the plaster loaded, so it maps itself to Lord is in this case.
+
+262
+00:45:54.894 --> 00:45:58.704
+Yeah, it maps itself to complete this particular.
+
+263
+00:46:00.054 --> 00:46:01.045
+This particular state,
+
+264
+00:46:11.275 --> 00:46:21.114
+so this particular step itself to noted and restore the connections and closures and things like that that are not like skills but,
+
+265
+00:46:21.114 --> 00:46:21.324
+you know,
+
+266
+00:46:21.324 --> 00:46:23.755
+we have a table for backing.
+
+267
+00:46:23.755 --> 00:46:26.275
+You are all the dissection that might have into this.
+
+268
+00:46:27.925 --> 00:46:33.954
+And show that as well so looking at this process, you see a process ID that you have it here.
+
+269
+00:46:36.684 --> 00:46:44.905
+I think to see what exactly happened, but I think you guys have disabled it in August, right?
+
+270
+00:46:55.074 --> 00:46:57.324
+Is it yeah.
+
+271
+00:46:59.934 --> 00:47:14.034
+No, I'm asking have you guys disabled for debugging for a lack of input? I don't think that's what I heard from Prakash anyways.
+
+272
+00:47:15.204 --> 00:47:17.664
+That's okay. You can check that later.
+
+273
+00:47:19.914 --> 00:47:31.739
+Yeah, and she gave me the same number that you have for archive right? Using the same institution a.
+
+274
+00:48:05.425 --> 00:48:15.954
+So you'll see yeah, actually, it is just doing the start. It will I need to check this with because she has enabled back for the complete ones.
+
+275
+00:48:17.579 --> 00:48:28.344
+So basically feel any errors that you have it, you will be able to that particular transaction based on it. Id would have got it.
+
+276
+00:48:29.815 --> 00:48:44.514
+So this is it an ID for this particular action that we fired for this particular execution? Well, this is the ID and the logos for this would be final, are using the ID in the longer table then.
+
+277
+00:48:46.675 --> 00:48:47.125
+Okay.
+
+278
+00:48:47.184 --> 00:49:01.764
+So, my part is so any questions you guys have, and after this, I'll tell you the main intention of you and giving this information.
+
+279
+00:49:03.864 --> 00:49:15.625
+No, no, no Christmas and nothing month. Okay. So okay. So can proceed. Yep. Okay.
+
+280
+00:49:15.655 --> 00:49:23.215
+I think has been asking people for cash also asking you people to have a look at jobs and things like that. Right?
+
+281
+00:49:26.155 --> 00:49:39.414
+So, there are two types of issues that you might have to check earlier in CSV. So, basically you will get a mail something like this urine C. A. C.
+
+282
+00:49:50.969 --> 00:49:51.210
+Yeah,
+
+283
+00:49:52.284 --> 00:49:59.425
+okay so you see this means that that particular script also,
+
+284
+00:49:59.425 --> 00:50:04.885
+since if for any error for any object in the file load fail,
+
+285
+00:50:05.280 --> 00:50:08.005
+then it will send out a notification.
+
+286
+00:50:08.340 --> 00:50:18.204
+So let's take that five files out of one of the police corrupted, then we shouldn't be notified or like, there should be a way that, you know, we know what went wrong. Right?
+
+287
+00:50:18.505 --> 00:50:30.684
+So we are sending that email notification across the Mailer areas definitely. Areas where, you know, there is status like this failure and PSP data load and this is the object name that we're giving.
+
+288
+00:50:31.074 --> 00:50:45.235
+So you knew, you may have to monitor this also failure in CSP data load. So, here it says file became not during the execution. So this would it be possible when two particular jobs happening at the same time? For the same object?
+
+289
+00:50:47.364 --> 00:50:51.385
+Okay, to know which to judge statement this is.
+
+290
+00:50:53.394 --> 00:51:05.514
+So, basically, let's take, I did them this right manually. Airflow also might have fired this automatic, the automatic processes. Okay.
+
+291
+00:51:05.514 --> 00:51:13.224
+So, when this is already completed file to upload it, why would it be possible?
+
+292
+00:51:17.155 --> 00:51:24.114
+A fourth state here was seconds off from some other sided on the CSP.
+
+293
+00:51:27.474 --> 00:51:40.914
+Yeah, yes so something like that, but so ignore on this part, but this kind of issues that we have to find out, why this is coming. Okay.
+
+294
+00:51:42.025 --> 00:51:55.434
+Anyways, this one taken this time, but apart from this one signed by, you guys why that happened if you see this is more have more and this should not happen.
+
+295
+00:51:55.434 --> 00:52:05.514
+There should be one if one floor should be one floor. Yeah, we need to see what has gone wrong. This is not this needs to be fixed.
+
+296
+00:52:05.514 --> 00:52:18.235
+No matter what any major getting part of this or any mail from this particular airflow team whatsoever. Any failures. Let that way. That has to be fixed. No exceptions to this.
+
+297
+00:52:18.235 --> 00:52:23.695
+And we cannot ignore this, we need to see what has gone wrong and they will get back on this.
+
+298
+00:52:24.625 --> 00:52:25.014
+Anyways,
+
+299
+00:52:25.014 --> 00:52:25.974
+I'll be working on this,
+
+300
+00:52:25.974 --> 00:52:28.764
+you can ignore this and apart from that,
+
+301
+00:52:29.394 --> 00:52:31.255
+the other type of errors that we have,
+
+302
+00:52:38.125 --> 00:52:41.755
+you see file became available lot of cases issues.
+
+303
+00:52:42.114 --> 00:52:46.795
+Yeah, no. So if you see here.
+
+304
+00:52:48.085 --> 00:53:00.204
+This particular fight, so if you see this mail, right? It clearly punches which file has got the failure and what is the error to it and similarly previous ones.
+
+305
+00:53:00.204 --> 00:53:15.114
+Also, it clearly says particular file when we try to rename that to dot upload. That file was not found to market to uploaded state. This is what I mean, it means there was one not at all the teacher.
+
+306
+00:53:15.114 --> 00:53:20.184
+Right? That one is fine.
+
+307
+00:53:20.545 --> 00:53:34.465
+There would be some issues that would have happened that we are having this kind of issue character issues that we may have to go and check what has gone wrong us appropriate team that will
+
+308
+00:53:35.454 --> 00:53:38.514
+take the action as of this issue that you're seeing.
+
+309
+00:53:38.514 --> 00:53:45.175
+It's already communicated. They are taking care if at all likely happens, you form them. This is happening every day.
+
+310
+00:53:50.664 --> 00:53:59.784
+So this is what you're saying, when you're loading into CS one to the cloud gateway, these are the kind of photos that you get that you have to inform with them.
+
+311
+00:54:01.315 --> 00:54:10.164
+Yes, and how will we know which are the ones that we need to? Correct because only based on the file. Right?
+
+312
+00:54:11.244 --> 00:54:22.590
+So when thinking about human hours to this, because not all cases, let's take for shadow defiance failure happened. Okay.
+
+313
+00:54:22.614 --> 00:54:35.905
+Or it can be connection related because of that it might have happened some, some reasons to it. Okay. I'll explain you on that. Well, that's coming to this kind of issues one or two final issues ignore supposed. Let's take.
+
+314
+00:54:36.355 --> 00:54:38.485
+So you have to categorize the tools into this.
+
+315
+00:54:39.989 --> 00:54:50.724
+First type of mails you're getting PSP load failed. Okay Lord pain. Okay. And the type wholesalers that you have.
+
+316
+00:54:55.465 --> 00:55:09.925
+Let's take missing in closed and again, you don't have to literally go and check every five minutes ten minutes. Not quite. I'll tell you how you have been doing. You just, I think.
+
+317
+00:55:11.094 --> 00:55:20.065
+More than that, I think it would be enough for all. You guys know about this and daily tracking also is not required. You see that your problem then only react to this.
+
+318
+00:55:21.300 --> 00:55:25.675
+So, you'll see, they decide the categories of issues that so far we haven't right?
+
+319
+00:55:29.244 --> 00:55:36.744
+I know it happened for shadow mode down here.
+
+320
+00:55:36.804 --> 00:55:48.835
+I'm just telling you guys keep track of this happen for shadow note, and anything similar just keep a lot of it happen.
+
+321
+00:55:49.135 --> 00:55:57.594
+Okay, well, we can make this happen flow technologies and this okay. Find this file, but I see.
+
+322
+00:56:04.494 --> 00:56:15.804
+Yeah, so if you see this one, right? This is one example on Saturday. What time is it? On Saturday.
+
+323
+00:56:33.054 --> 00:56:35.695
+Okay, this is today. Apm right?
+
+324
+00:56:48.059 --> 00:56:56.155
+So another shadow note, which is Sunday, so keep taking you for occurrences more on the subject such a beautiful.
+
+325
+00:57:03.204 --> 00:57:08.965
+The two pretty sure to to me again.
+
+326
+00:57:12.894 --> 00:57:25.914
+Okay, you can take this one as an example. Just see this, this generated today for this particular object. This is all expected or not expected, ignore this.
+
+327
+00:57:25.914 --> 00:57:40.735
+But you don't have to report this because this has already been in action. I mean, the work is happening, whereas if you see this, send this, right? So, at nine o'clock make fortified fail, it failed. That means there's something that would have happened.
+
+328
+00:57:41.364 --> 00:57:51.235
+That has gone that, you know, this frequently. That is happening. We can make it. So, such kind of issues can you see more often?
+
+329
+00:57:51.235 --> 00:58:05.844
+Something is failing you need to report that don't have to go and fix it for the ask you some initial days to do the analysis. Then the last we're tracking is important. Anything is pending in not happening.
+
+330
+00:58:06.474 --> 00:58:09.534
+Just to see if we can run this particular script.
+
+331
+00:58:12.744 --> 00:58:17.905
+Just change the name. Oh.
+
+332
+00:58:20.394 --> 00:58:21.684
+This command line, I'll give you.
+
+333
+00:58:25.644 --> 00:58:34.885
+I'll give you the slide, just changing the object name into this one and during it and see what exactly the results here. What is the behavior.
+
+334
+00:58:37.224 --> 00:58:47.514
+Okay, yeah, so far, this is the thing. Let me just see the issues that's issues when we're debugging or when we're fixing some issues.
+
+335
+00:58:47.605 --> 00:58:54.505
+I will tell you, we have done it so that you guys can get into the habit of fixing this also.
+
+336
+00:58:56.460 --> 00:59:08.244
+But we'll get used to this particular means and the behavior, then any success we're doing, we'll keep you informed so that you guys can do it in future. That is required. Okay.
+
+337
+00:59:14.724 --> 00:59:21.715
+Again, the issue may not be the same. It's the same always.
+
+338
+00:59:21.744 --> 00:59:35.545
+If you see here, also the explanation of record reach, that means the file was collected, just got corrupted for the for all five files it happened. So, for this task for a second, did it fail?
+
+339
+00:59:35.545 --> 00:59:40.735
+Anytime you just have to put it, then the portal display has entered, right?
+
+340
+00:59:41.244 --> 00:59:52.795
+Rename the file from it can be it can pick up again but again, going on that will let, you know, from next time slowly.
+
+341
+00:59:52.795 --> 01:00:04.434
+Slowly you guys now have a look at device next point anything that needs to be fixed stake. Anything got it got uploaded it needs to be the process. So we'll have that CSP file back from data.
+
+342
+01:00:06.414 --> 01:00:19.525
+We'll pick it that we can do, but not for that incrementally, but for now, just have a look at the emails that you're getting. And apart from that, normally, this means not only failure in CSP data.
+
+343
+01:00:19.855 --> 01:00:22.284
+There is something incremental that you may have to check.
+
+344
+01:00:23.905 --> 01:00:26.155
+Yeah, so if you see it.
+
+345
+01:00:28.764 --> 01:00:29.065
+So,
+
+346
+01:00:29.065 --> 01:00:31.135
+there was incremental load for case,
+
+347
+01:00:32.010 --> 01:00:39.954
+so this object started without an issue but here,
+
+348
+01:00:39.954 --> 01:00:40.554
+if you see,
+
+349
+01:00:43.614 --> 01:00:43.855
+okay,
+
+350
+01:00:44.934 --> 01:00:49.614
+it has failed to tag that,
+
+351
+01:00:50.244 --> 01:00:51.324
+let's take this failed,
+
+352
+01:00:51.324 --> 01:00:53.664
+which is fine in the next tilbrook again.
+
+353
+01:00:53.664 --> 01:01:04.224
+This phase one thing is fine, but this is your Greenway. There's some issue we have to take action for now keep track of this.
+
+354
+01:01:05.695 --> 01:01:20.635
+We'll keep focusing on this to analyze and how that not too difficult to digest
+
+355
+01:01:20.664 --> 01:01:21.054
+too long.
+
+356
+01:01:21.054 --> 01:01:26.155
+Katie is big time.
+
+357
+01:01:29.605 --> 01:01:42.744
+So you just go through this mails, not expecting you guys to fix it, but get through go understand what the purpose of each meal is. Basically, we have two types of things. One is incremental.
+
+358
+01:01:42.744 --> 01:01:53.454
+And then you have the failures in CSB load once the object twice basically, that is coming from air flow. That is the air flow is the system. I think you guys are aware of where, like an automatic.
+
+359
+01:01:54.324 --> 01:02:08.695
+Oh, come on execution happens for this objects and running this by turns periodically. So this is what happens and I think I, as pulmonologist twenty minutes, not sure we can take that without.
+
+360
+01:02:08.695 --> 01:02:13.315
+And then people here, if that is required, but for now, this is what I'm thinking.
+
+361
+01:02:15.445 --> 01:02:25.014
+And this is working on failures in CSP. These are two things that you guys may have to for now check anything that is failing first in first case, just check it.
+
+362
+01:02:25.045 --> 01:02:39.324
+Is there any occurrence of particular object if that happens the reports that reporting once once things are in control or something let's take when we say, like, you know, this is, let's take I say this is particularly.
+
+363
+01:02:42.864 --> 01:02:55.074
+This particular issue confirms that he's done it or if I say that there is something that is done from my side and this has been fixed and then in that case, it should never happen again. So, this kind of monitoring and checks would be required.
+
+364
+01:02:55.614 --> 01:03:08.664
+Both during as such, I think we are still pretty much stapled on this, except you think the few problems that we had it related to your jobs otherwise I think we are good to kick off again.
+
+365
+01:03:08.724 --> 01:03:18.385
+At least from the that we have the name, I think it's great to pick it up. Forget where it was last one.
+
+366
+01:03:18.385 --> 01:03:29.034
+So that is what it is that to have a look at it, not expecting us to fix, but it is important that you guys have a look at this one. If it says we're doing, we'll invoice on that.
+
+367
+01:03:31.914 --> 01:03:38.364
+Okay, yeah, any questions I'm open for discussion if you can let me know.
+
+368
+01:03:41.605 --> 01:03:55.824
+And then, when we go to the units, I think they'll have questions, but then we get back to you. Oh, what is it? Sorry? And then we go to the emails and we'll take the quota.
+
+369
+01:03:56.844 --> 01:04:07.795
+So, after that, if you have any questions, we'll get back to you, then that would be patient. Okay. I think we can stop the recording.
+
+370
+01:04:16.980 --> 01:04:17.875
+So so now,
+
+371
+01:04:17.875 --> 01:04:32.574
+let's discuss on the DP transaction thing militia to create a query too much the two columns associated with and okay,
+
+372
+01:04:36.204 --> 01:04:36.894
+what is it?
+
+373
+01:04:39.989 --> 01:04:49.494
+Created by all right, right the data from if you transaction one, two transaction before.
+
+374
+01:04:52.170 --> 01:05:00.954
+Okay, yeah, so so the query you created is fine. We'll go, but we are not looking with the IDs.
+
+375
+01:05:01.769 --> 01:05:11.514
+If you want to do retirees that is that is easy only what it is hard to get all ladies because because there are more than ten million records.
+
+376
+01:05:13.650 --> 01:05:21.954
+So, is there a way that we can merge the columns from?
+
+377
+01:05:22.525 --> 01:05:32.664
+We'll table two and then the transaction one transaction based on the ID why? Yeah. Okay.
+
+378
+01:05:34.500 --> 01:05:42.625
+Because there isn't one, we don't have the complete data. One question. A pair transaction has distinct records.
+
+379
+01:05:47.005 --> 01:05:48.715
+I think this would be our industry records.
+
+380
+01:05:50.934 --> 01:06:04.710
+Should be fine. I think we'll be able to study for total. We already have it in maybe a transaction. That's one thing. Let's take the, let's copy the fully paid transaction table to a different tables. Okay.
+
+381
+01:06:05.005 --> 01:06:08.574
+If we transition to a different table. So we'll do that.
+
+382
+01:06:11.545 --> 01:06:21.235
+And we'll try to match this to two columns and see if it works in the, they just split it.
+
+383
+01:06:23.094 --> 01:06:25.255
+But it can be done.
+
+384
+01:06:31.255 --> 01:06:37.405
+No, he's, he's kinda frailty. Normally I'll do it morning.
+
+385
+01:06:40.800 --> 01:06:50.784
+Okay, at least you can see, like, is it possible or not then we can discuss tomorrow they definitely will, because it will because you have it in so transaction, right?
+
+386
+01:06:51.085 --> 01:06:57.775
+Any data for that ID that you that is the transaction one I'll put it anywhere transaction. No worries on that.
+
+387
+01:07:00.059 --> 01:07:10.914
+For the entirety, only this two columns got it and update. Well, it is two columns. I am getting what you're saying, but the, there's two thing, right? So, we, we cannot do based on the ID.
+
+388
+01:07:10.945 --> 01:07:24.324
+So, unlike we cannot, if it is not right, correct that that's only for the ideas that they so that just need to modify.
+
+389
+01:07:27.655 --> 01:07:37.614
+Yeah, they just need to modify the created data. That's why I chose the query. Yeah. Can you share the screen? Yeah.
+
+390
+01:07:48.114 --> 01:08:01.195
+Luckily, the more you do that transaction, but I don't see your mindset. It's my from my side. Yeah. Can you go to can you go down and show complete.
+
+391
+01:08:03.655 --> 01:08:13.735
+This is a much query when actually, I'm checking that table using this particular table. That particular created date is this. I just pulled this sample ID.
+
+392
+01:08:13.824 --> 01:08:26.845
+I'll just take this out the ideas. It is marking on the ID and release matches. It is going to update it, but when matched to address, it is not I can just put the condition over here.
+
+393
+01:08:27.385 --> 01:08:28.944
+So if I don't do this way.
+
+394
+01:08:40.829 --> 01:08:53.904
+Okay that you can, then you can see here so someone, let's created a duplicate tables so we can test it out now. Okay. Give you one second.
+
+395
+01:09:10.284 --> 01:09:13.824
+One segment chocolate, but I'll just get one.
+
+396
+01:09:31.645 --> 01:09:43.944
+Long just being me though, I wouldn't be executing. I just need to have a place.
+
+397
+01:10:04.555 --> 01:10:12.385
+Because after February, twelve, incremental, I corrected it so it is a key. So before the attorney, that's all.
+
+398
+01:10:53.545 --> 01:11:07.494
+I've taken sick, but I have taken the distinct record. I've taken distinctive courses. You're taking.
+
+399
+01:11:08.904 --> 01:11:13.585
+Do you want me to take as is or I'll do one thing as is for the record. I'll ticket.
+
+400
+01:11:14.935 --> 01:11:19.645
+Once okay, let's take two one one as backup one one for testing.
+
+401
+01:11:34.345 --> 01:11:42.925
+So, we use this particular object for testing and this one, but still will not be touching this particular table for now.
+
+402
+01:11:44.965 --> 01:11:50.335
+Yes, just pinging you the names in case we don't miss it.
+
+403
+01:11:52.560 --> 01:11:56.994
+Yeah, you know, we can test it on my info.
+
+404
+01:12:23.545 --> 01:12:33.744
+You can then select stuff from oh, yeah, yeah. Yeah. Like the temp table is this right? Created number? Twenty wanted to change.
+
+405
+01:12:37.104 --> 01:12:43.675
+Once a, yeah do you guys know how many IDs are common in industry tables?
+
+406
+01:12:46.494 --> 01:12:47.484
+How many already so.
+
+407
+01:12:52.975 --> 01:13:07.645
+Oh, sorry. Okay. I think ignored because you have same date. So we need to change. What are we trying to do?
+
+408
+01:13:08.635 --> 01:13:18.354
+No, I'm just checking this one thing just to see how many records when, when we are executing merge, we need to be sure that updated all of this.
+
+409
+01:13:22.890 --> 01:13:33.805
+Where is it all of that stuff? Sixteen million but I think units are stable in a transaction. It will be even more.
+
+410
+01:13:36.625 --> 01:13:40.104
+Okay, otherwise we'll much display has.
+
+411
+01:14:04.020 --> 01:14:08.545
+What that means this guy has totally this minute also.
+
+412
+01:14:10.194 --> 01:14:18.805
+That's the flow. No. So, section overall has data from created date of this date.
+
+413
+01:14:21.359 --> 01:14:29.994
+Yeah, mostly okay so that is what it is returning so I'm just thinking if you only to the max.
+
+414
+01:14:31.020 --> 01:14:38.515
+Just to the max of year to date not next.
+
+415
+01:14:39.659 --> 01:14:40.404
+Mix right.
+
+416
+01:14:46.380 --> 01:14:55.255
+What is this created? Mr. no. Okay. So you fulcrum fourteen. We have digitize what you're saying.
+
+417
+01:14:57.625 --> 01:15:01.345
+No, till only two fourteen did we have data.
+
+418
+01:15:02.880 --> 01:15:13.494
+Okay, your transaction underscore underscore C one as well as little fourteen sometimes your way around it after that we don't have it.
+
+419
+01:15:15.659 --> 01:15:19.795
+Okay, okay, let me do the match for it.
+
+420
+01:15:43.734 --> 01:15:43.854
+And.
+
+421
+01:15:51.595 --> 01:15:59.965
+May I ask you one question? Is there a case where it can be modified data?
+
+422
+01:15:59.994 --> 01:16:08.484
+But is there a combination of multiple nutcase to oh case for the two values?
+
+423
+01:16:11.364 --> 01:16:22.645
+What is it to migrate? Not understand the person I'm sick I just wanted to check. Is there two fields that we have nuclear one is created by and modified by see.
+
+424
+01:16:27.085 --> 01:16:41.005
+One can be and the other could we could we yeah. Okay. You do that.
+
+425
+01:16:41.215 --> 01:16:44.545
+Select Microsoft create from is stable.
+
+426
+01:16:49.914 --> 01:16:53.274
+The line number quantify, just to remove the content, put the access.
+
+427
+01:17:00.564 --> 01:17:02.034
+And it's.
+
+428
+01:17:13.914 --> 01:17:15.744
+Last two days.
+
+429
+01:17:17.850 --> 01:17:18.090
+Hello.
+
+430
+01:17:31.524 --> 01:17:40.074
+It just gave me five minutes for my validation. If you want to continue discussion, I'm gonna share this cleanup. So I just need to validate don't perform the much one.
+
+431
+01:17:40.074 --> 01:17:51.685
+Now, before that, can we do want to change the line number twenty, remove the transaction to nineteen so.
+
+432
+01:17:55.824 --> 01:17:58.704
+This one yeah.
+
+433
+01:17:59.814 --> 01:18:03.145
+That went to maintenance, which we did, which we created.
+
+434
+01:18:08.574 --> 01:18:22.164
+My ID only, but let's use a backup table, which took now right? I am not going there at all. I'll do it the little literally. I'll definitely update this. I'm not doing that one.
+
+435
+01:18:36.029 --> 01:18:40.284
+Okay, give me one minute. Let me call.
+
+436
+01:18:44.154 --> 01:18:44.545
+You want,
+
+437
+01:19:01.555 --> 01:19:02.574
+okay as of now,
+
+438
+01:19:02.574 --> 01:19:05.935
+both of these values are always adding value and it doesn't have no value.
+
+439
+01:19:06.744 --> 01:19:10.404
+It always has some data just to validate ticket.
+
+440
+01:19:15.895 --> 01:19:16.675
+Matched.
+
+441
+01:19:33.984 --> 01:19:37.975
+To find things on this.
+
+442
+01:19:44.515 --> 01:19:54.505
+I don't see any necessity of having this clear today criteria because the total record of this is same is the overall number. So, do you want me to retain this? Created it?
+
+443
+01:19:57.864 --> 01:19:58.104
+Yeah.
+
